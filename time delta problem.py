@@ -70,7 +70,7 @@ def time_delta(t1, t2):
     dt1_sec = dt1_hrs * 60**2 + dt1_mins * 60 if dt1_hrs >= 0 else dt1_hrs * 60**2 - dt1_mins * 60
     dt2_sec = dt2_hrs * 60**2 + dt2_mins * 60 if dt2_hrs >= 0 else dt2_hrs * 60**2 - dt2_mins * 60
     print(dt1_hrs, dt1_mins, dt1_sec)
-    td = abs(total_difference_seconds - abs(dt1_sec - dt2_sec))
+    td = abs(total_difference_seconds - abs(dt2_sec - dt1_sec))
 
     print(td)
 
