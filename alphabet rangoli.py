@@ -1,30 +1,19 @@
+import string
+
+
 def print_rangoli(size):
-    alph = ['a', 'b', 'c',
-            'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    current_letters = []
-    final = []
-    w = 4 * size - 3
-    print(w)
+    alph = string.ascii_lowercase
+    width = 4 * size - 3
+    pattern = []
 
+    # Generate the top half (including the middle)
     for i in range(size):
-        current_letters.append(alph[size-i-1])
-        left_part = current_letters[:-1]
-        for u in current_letters:
-            final.append(u)
-        for j in left_part[::-1]:
-            final.append(j)
-        print('-'.join(final).center(w, '-'))
-        final = []
+        letters = alph[size - i - 1:size]  # Get the required slice
+        line = '-'.join(letters[::-1] + letters[1:])  # Create the line
+        pattern.append(line.center(width, '-'))
 
-    for i in range(size-1, 0, -1):
-        current_letters = current_letters[:-1]
-        left_part = current_letters[:-1]
-        for u in current_letters:
-            final.append(u)
-        for j in left_part[::-1]:
-            final.append(j)
-        print('-'.join(final).center(w, '-'))
-        final = []
+    # Print the full rangoli by mirroring the top half
+    print('\n'.join(pattern + pattern[-2::-1]))
 
 
 if __name__ == '__main__':
