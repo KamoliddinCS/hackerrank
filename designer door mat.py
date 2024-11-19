@@ -65,6 +65,3 @@ e1 = ".|."
 
 for i in range(n-2, 0, -2):
     print((e1*i).center(m, e2))
-
-
-
